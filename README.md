@@ -1,5 +1,7 @@
 # AI Job Search Assistant Bot
 
+[![CI](https://github.com/Unequal1213/ai-job-search-assistant-bot/actions/workflows/ci.yml/badge.svg)](https://github.com/Unequal1213/ai-job-search-assistant-bot/actions/workflows/ci.yml)
+
 A production-style Telegram bot foundation for AI-style job search assistance.
 The bot can analyze vacancy text and generate a short professional cover letter
 draft using deterministic local logic.
