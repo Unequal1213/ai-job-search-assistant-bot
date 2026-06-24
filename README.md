@@ -29,6 +29,20 @@ configuration, tests, Docker, Ruff, and GitHub Actions CI.
 - `/generate_cover_letter` - asks the user to send vacancy text for a cover
   letter draft.
 
+## Screenshots
+
+`/start` and `/help` commands:
+
+![Start and help command example](docs/images/start-help-example.png)
+
+Vacancy analysis flow:
+
+![Vacancy analysis example](docs/images/vacancy-analysis-example.png)
+
+Cover letter generation flow:
+
+![Cover letter generation example](docs/images/cover-letter-example.png)
+
 ## Tech stack
 
 - Python 3.13
