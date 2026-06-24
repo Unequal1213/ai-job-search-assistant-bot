@@ -11,6 +11,28 @@ Telegram bot for AI-style job vacancy analysis and cover letter generation.
 The current MVP uses deterministic local services only. It does not require
 OpenAI credentials or external AI APIs.
 
+## Local run
+
+Create a local environment file:
+
+```bash
+cp .env.example .env
+```
+
+Add your real Telegram bot token to `.env`:
+
+```bash
+BOT_TOKEN=your_real_telegram_bot_token
+```
+
+Run the bot:
+
+```bash
+python -m app.main
+```
+
+If `BOT_TOKEN` is missing, the app exits cleanly without starting polling.
+
 ## Docker
 
 Build the bot image:
