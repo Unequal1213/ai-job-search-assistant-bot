@@ -1,0 +1,7 @@
+services:
+  bot:
+    build: .
+    environment:
+      BOT_TOKEN: ${BOT_TOKEN:-}
+    command: python -m app.main
+    restart: unless-stopped
