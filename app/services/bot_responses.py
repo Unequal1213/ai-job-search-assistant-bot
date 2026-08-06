@@ -6,7 +6,8 @@ from app.schemas.vacancy import VacancyAnalysis
 def get_start_text() -> str:
     """Return the /start command response."""
     return (
-        "Hello! I am your AI Job Search Assistant Bot.\n\n"
+        "Hello! I am the Job Search Workflow Bot "
+        "(formerly AI Job Search Assistant Bot).\n\n"
         "I can analyze vacancy text and help prepare a short cover letter draft "
         "using deterministic local rules."
     )
