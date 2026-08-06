@@ -1,10 +1,12 @@
 """Schemas for vacancy analysis results."""
 
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 
 
 class VacancyAnalysis(BaseModel):
     """Deterministic analysis result for a vacancy text."""
+
+    model_config = ConfigDict(extra="forbid")
 
     detected_role: str
     seniority_level: str

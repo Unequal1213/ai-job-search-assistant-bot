@@ -4,3 +4,11 @@ target-version = "py311"
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "B"]
+
+[tool.pytest.ini_options]
+addopts = "-ra"
+asyncio_mode = "auto"
+markers = [
+    "postgres: requires a disposable PostgreSQL database",
+]
+testpaths = ["tests"]
