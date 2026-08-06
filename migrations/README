@@ -1,0 +1,2 @@
+Migrations are executed explicitly with `python -m alembic upgrade head`.
+Application startup never applies schema changes automatically.
