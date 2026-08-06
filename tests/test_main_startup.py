@@ -1,6 +1,7 @@
 import asyncio
 
-from app.main import run_bot
+from app.core.config import Environment, Settings
+from app.main import run_application, run_bot
 
 
 class FakeBot:
@@ -53,3 +54,45 @@ def test_run_bot_with_token_starts_polling_with_mocked_dispatcher() -> None:
     assert started is True
     assert dispatcher.started is True
     assert dispatcher.bot is fake_bot
+
+
+class FakeSession:
+    def __init__(self) -> None:
+        self.closed = False
+
+    async def close(self) -> None:
+        self.closed = True
+
+
+class FakeClosableBot(FakeBot):
+    def __init__(self) -> None:
+        self.session = FakeSession()
+
+
+def test_run_bot_closes_session_after_polling_stops() -> None:
+    dispatcher = FakeDispatcher()
+    bot = FakeClosableBot()
+
+    started = asyncio.run(
+        run_bot(
+            bot_token="synthetic-token",
+            bot_factory=lambda _: bot,
+            dispatcher_factory=lambda: dispatcher,
+        )
+    )
+
+    assert started is True
+    assert bot.session.closed is True
+
+
+def test_application_initializes_and_shuts_down_without_polling(tmp_path) -> None:
+    settings = Settings(
+        _env_file=None,
+        bot_token=None,
+        database_url=f"sqlite+aiosqlite:///{tmp_path / 'startup.db'}",
+        environment=Environment.TEST,
+    )
+
+    started = asyncio.run(run_application(settings))
+
+    assert started is False

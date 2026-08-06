@@ -48,6 +48,5 @@ def test_analyze_vacancy_handles_unknown_text() -> None:
     assert result.required_skills == []
     assert result.matching_keywords == []
     assert result.recommendation == (
-        "Add more technical details from the vacancy before preparing "
-        "an application."
+        "Add more technical details from the vacancy before preparing an application."
     )
